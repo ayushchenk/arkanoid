@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import config from "../../config";
 import { Point } from "../../models/Point";
-import { getRandomPoint } from "../../util/Util";
+import { getRandomPoint, isBallBelowAndOutsidePlayer, isBallInsidePlayer, isBallOutsideLeftBorder, isBallOutsideRightBorder, isBallOutsideUpperBorder } from "../../util/Util";
 import { initialState } from "./BallState";
 
 export const ballSlice = createSlice({
@@ -12,14 +11,24 @@ export const ballSlice = createSlice({
             state.position.x += state.xVelocity;
             state.position.y += state.yVelocity;
         },
-        checkLowerBound: (state, action: PayloadAction<Point>) => {
-            if (state.position.y > action.payload.y &&
-                (state.position.x < action.payload.x || state.position.x > action.payload.x + config.player.size.width)) {
+        checkBorders: (state, action: PayloadAction<Point>) => {
+            const playerPosition = action.payload;
+
+            if (isBallInsidePlayer(playerPosition, state.position) || isBallOutsideUpperBorder(state.position)) {
+                state.yVelocity *= -1;
+            }
+
+            if (isBallOutsideRightBorder(state.position) || isBallOutsideLeftBorder(state.position)) {
+                state.xVelocity *= -1;
+            }
+
+            if (isBallBelowAndOutsidePlayer(playerPosition, state.position)) {
                 state.position = getRandomPoint(100, 200, 100, 200);
             }
+
         }
     }
 });
 
-export const { applyVelocity, checkLowerBound } = ballSlice.actions;
+export const { applyVelocity, checkBorders } = ballSlice.actions;
 export const ballReducer = ballSlice.reducer;

@@ -12,7 +12,7 @@ export function Ball() {
     useEffect(() => {
         const interval = setInterval(() => {
             dispatch(moveBall());
-        }, 10);
+        }, config.ball.interval);
 
         return () => clearInterval(interval);
     }, [dispatch, playerPosition]);

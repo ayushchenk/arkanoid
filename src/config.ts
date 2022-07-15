@@ -12,7 +12,8 @@ const config = {
     },
     ball: {
         radius: 10,
-        offset: 2
+        offset: 1,
+        interval: 5
     },
     arena: {
         height: window.innerHeight,
