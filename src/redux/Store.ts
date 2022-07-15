@@ -1,5 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { ballReducer } from '../slices/BallSlice';
+import { AnyAction, configureStore, ThunkAction } from '@reduxjs/toolkit';
+import { ballReducer } from '../slices/Ball/BallSlice';
 import { playerReducer } from "../slices/PlayerSlice";
 
 export const store = configureStore({
@@ -10,4 +10,5 @@ export const store = configureStore({
 });
 
 export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
+export type AppState = ReturnType<typeof store.getState>;
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, AppState, unknown, AnyAction>;

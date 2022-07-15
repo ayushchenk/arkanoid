@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import config from "../config";
 import { Brick } from "./Brick";
 import { useAppDispatch, useAppSelector } from "../redux/Hooks";
-import { moveBall } from "../slices/BallSlice";
-
+import { moveBall } from "../slices/Ball/BallThunks";
 
 export function Ball() {
     const ballPosition = useAppSelector(state => state.ball.position);
@@ -12,7 +11,7 @@ export function Ball() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            dispatch(moveBall(playerPosition));
+            dispatch(moveBall());
         }, 10);
 
         return () => clearInterval(interval);
