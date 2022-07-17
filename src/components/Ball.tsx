@@ -6,7 +6,6 @@ import { moveBall } from "../slices/Ball/BallThunks";
 
 export function Ball() {
     const ballPosition = useAppSelector(state => state.ball.position);
-    const playerPosition = useAppSelector(state => state.player.position);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -15,7 +14,7 @@ export function Ball() {
         }, config.ball.interval);
 
         return () => clearInterval(interval);
-    }, [dispatch, playerPosition]);
+    }, [dispatch]);
 
     return (
         <Brick

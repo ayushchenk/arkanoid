@@ -25,7 +25,6 @@ export const ballSlice = createSlice({
             if (isBallBelowAndOutsidePlayer(playerPosition, state.position)) {
                 state.position = getRandomPoint(100, 200, 100, 200);
             }
-
         }
     }
 });
