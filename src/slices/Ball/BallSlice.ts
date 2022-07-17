@@ -37,7 +37,7 @@ export const ballSlice = createSlice({
             }
 
             if (isBallBelowAndOutsidePlayer(playerPosition, state.position)) {
-                state.position = getRandomPoint(100, 200, 100, 200);
+                state.position = getRandomPoint(100, 1000, 100, 200);
                 state.xVelocity = config.ball.offset;
                 state.yVelocity = config.ball.offset;
             }

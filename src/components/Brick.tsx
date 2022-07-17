@@ -5,7 +5,7 @@ import { Size } from "../models/Size";
 export interface BrickProps {
     position: Point;
     size: Size;
-    className: string;
+    className?: string;
 }
 
 export function Brick(props: BrickProps) {

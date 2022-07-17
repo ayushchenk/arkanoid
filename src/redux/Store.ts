@@ -1,12 +1,14 @@
 import { AnyAction, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { ballReducer } from '../slices/Ball/BallSlice';
+import { bricksGridReducer } from '../slices/BricksGrid/BricksGridSlices';
 import { playerReducer } from "../slices/Player/PlayerSlice";
 
 export const store = configureStore({
     reducer: {
         player: playerReducer,
-        ball: ballReducer
+        ball: ballReducer,
+        grid: bricksGridReducer
     },
 });
 

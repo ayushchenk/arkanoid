@@ -16,12 +16,25 @@ const config = {
     },
     ball: {
         radius: 10,
-        offset: 1,
-        interval: 5
+        offset: 2,
+        interval: 2
     },
     arena: {
         height: window.innerHeight,
-        width: window.innerWidth
+        width: window.innerWidth,
+        gap: 10,
+        rows: 5,
+        columns: function () {
+            return Math.floor(this.width / (this.brick.size.width + this.gap)) - 1;
+        },
+        brick: {
+            size: {
+                height: 40,
+                width: 100
+            }
+        }
+
+        // columns: 10,
     }
 };
 

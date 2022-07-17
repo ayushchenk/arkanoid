@@ -17,6 +17,10 @@ code {
   box-sizing: border-box;
 }
 
+.default{
+  background-color: dimgray;
+}
+
 .player {
   border: 1px solid black;
   background-color: gray;
