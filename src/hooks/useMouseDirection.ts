@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useAppDispatch } from "../redux/Hooks";
-import { setPlayerPosition } from "../slices/PlayerSlice";
+import { useAppDispatch } from "../redux/Store";
+import { setPlayerPosition } from "../slices/Player/PlayerSlice";
 
 export function useMouseDirection(): void {
     const dispatch = useAppDispatch();

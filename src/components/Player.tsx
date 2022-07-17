@@ -1,18 +1,19 @@
 import { Brick } from "./Brick";
 import config from "../config";
-import { useAppSelector } from "../redux/Hooks";
 import { useMouseDirection } from "../hooks/useMouseDirection";
+import { useVelocityCalculation } from "../hooks/useVelocityCalculation";
+import { useAppSelector } from "../redux/Store";
 
 export function Player() {
-    const position = useAppSelector(state => state.player.position);
+    const playerPosition = useAppSelector(state => state.player.position);
 
     useMouseDirection();
+    useVelocityCalculation();
 
     return (
         <Brick
-            position={position}
+            position={playerPosition}
             size={config.player.size}
-            className="player"
-        />
+            className="player" />
     );
 }

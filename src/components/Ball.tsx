@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import config from "../config";
 import { Brick } from "./Brick";
-import { useAppDispatch, useAppSelector } from "../redux/Hooks";
 import { moveBall } from "../slices/Ball/BallThunks";
+import { useAppSelector, useAppDispatch } from "../redux/Store";
 
 export function Ball() {
     const ballPosition = useAppSelector(state => state.ball.position);

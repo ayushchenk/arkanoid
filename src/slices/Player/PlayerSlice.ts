@@ -1,15 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import config from "../config";
-import { Direction } from "../models/Direction";
-import { Point } from "../models/Point";
-
-export interface PlayerState {
-    position: Point;
-}
-
-const initialState: PlayerState = {
-    position: config.player.startingPosition
-}
+import config from "../../config";
+import { Direction } from "../../models/Direction";
+import { initialState } from "./PlayerState";
 
 export const playerSlice = createSlice({
     name: "player",
@@ -27,9 +19,19 @@ export const playerSlice = createSlice({
         },
         setPlayerPosition: (state, action: PayloadAction<number>) => {
             state.position.x = action.payload - config.player.size.width / 2;
+        },
+        updatePlayerVelocity: (state, action: PayloadAction<number>) => {
+            state.velocity = action.payload;
+        },
+        updatePlayerLastX: (state, action: PayloadAction<number>) => {
+            state.lastX = action.payload;
         }
     }
 });
 
-export const { movePlayer, setPlayerPosition } = playerSlice.actions;
+export const {
+    movePlayer,
+    setPlayerPosition,
+    updatePlayerVelocity,
+    updatePlayerLastX } = playerSlice.actions;
 export const playerReducer = playerSlice.reducer;

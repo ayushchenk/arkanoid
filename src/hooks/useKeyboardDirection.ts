@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Direction } from "../models/Direction";
-import { useAppDispatch } from "../redux/Hooks";
-import { movePlayer } from "../slices/PlayerSlice";
+import { useAppDispatch } from "../redux/Store";
+import { movePlayer } from "../slices/Player/PlayerSlice";
 
 export function useKeyboardDirection(): void {
     const dispatch = useAppDispatch();

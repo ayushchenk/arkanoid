@@ -8,7 +8,8 @@ const config = {
             x: window.innerWidth / 2,
             y: window.innerHeight - 100,
         },
-        offset: 10
+        offset: 10,
+        velocityInterval: 50
     },
     ball: {
         radius: 10,

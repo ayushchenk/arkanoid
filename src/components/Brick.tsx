@@ -17,6 +17,6 @@ export function Brick(props: BrickProps) {
     };
 
     return (
-        <div className={`brick ${props.className}`} style={styles}></div>
+        <div className={`brick ${props.className}`} style={styles} />
     );
 }
