@@ -11,7 +11,7 @@ const config = {
         offset: 10,
         velocityInterval: 50,
         halfWidth: function () {
-            return this.size.width;
+            return this.size.width / 2;
         }
     },
     ball: {

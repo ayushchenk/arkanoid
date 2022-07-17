@@ -1,7 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import config from "../../config";
 import { Point } from "../../models/Point";
-import { getRandomPoint, isBallBelowAndOutsidePlayer, isBallInsidePlayer, isBallOutsideLeftBorder, isBallOutsideRightBorder, isBallOutsideUpperBorder } from "../../util/Util";
+import {
+    getRandomPoint,
+    isBallBelowAndOutsidePlayer,
+    isBallInsidePlayer,
+    isBallOutsideLeftBorder,
+    isBallOutsideRightBorder,
+    isBallOutsideUpperBorder
+} from "../../util/Util";
 import { initialState } from "./BallState";
 
 export const ballSlice = createSlice({
