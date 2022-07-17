@@ -9,7 +9,10 @@ const config = {
             y: window.innerHeight - 100,
         },
         offset: 10,
-        velocityInterval: 50
+        velocityInterval: 50,
+        halfWidth: function () {
+            return this.size.width;
+        }
     },
     ball: {
         radius: 10,

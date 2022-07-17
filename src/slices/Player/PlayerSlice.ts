@@ -18,13 +18,16 @@ export const playerSlice = createSlice({
             }
         },
         setPlayerPosition: (state, action: PayloadAction<number>) => {
-            state.position.x = action.payload - config.player.size.width / 2;
+            const newX = action.payload;
+
+            if (newX >= config.player.halfWidth() && newX <= config.arena.width - config.player.halfWidth()) {
+                state.position.x = newX - config.player.halfWidth();
+            }
         },
-        updatePlayerVelocity: (state, action: PayloadAction<number>) => {
-            state.velocity = action.payload;
-        },
-        updatePlayerLastX: (state, action: PayloadAction<number>) => {
-            state.lastX = action.payload;
+        calculateVelocity: (state) => {
+            const newVelocity = (state.position.x - state.lastX) / config.player.velocityInterval;
+            state.velocity = newVelocity;
+            state.lastX = state.position.x;
         }
     }
 });
@@ -32,6 +35,6 @@ export const playerSlice = createSlice({
 export const {
     movePlayer,
     setPlayerPosition,
-    updatePlayerVelocity,
-    updatePlayerLastX } = playerSlice.actions;
+    calculateVelocity
+} = playerSlice.actions;
 export const playerReducer = playerSlice.reducer;
