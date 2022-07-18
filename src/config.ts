@@ -8,6 +8,7 @@ const config = {
             x: window.innerWidth / 2,
             y: window.innerHeight - 50,
         },
+        health: 5,
         offset: 10,
         velocityInterval: 10,
         halfWidth: function () {
