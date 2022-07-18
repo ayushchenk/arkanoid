@@ -33,8 +33,6 @@ const config = {
                 width: 100
             }
         }
-
-        // columns: 10,
     }
 };
 
