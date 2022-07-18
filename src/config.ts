@@ -6,17 +6,17 @@ const config = {
         },
         startingPosition: {
             x: window.innerWidth / 2,
-            y: window.innerHeight - 100,
+            y: window.innerHeight - 50,
         },
         offset: 10,
-        velocityInterval: 50,
+        velocityInterval: 10,
         halfWidth: function () {
             return this.size.width / 2;
         }
     },
     ball: {
-        radius: 10,
-        offset: 2,
+        size: 10,
+        offset: 1.7,
         interval: 2
     },
     arena: {

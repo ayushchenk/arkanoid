@@ -20,7 +20,7 @@ export function Ball() {
         <Brick
             className="ball"
             position={ballPosition}
-            size={{ width: config.ball.radius, height: config.ball.radius }}
+            size={{ width: config.ball.size, height: config.ball.size }}
         />
     );
 }

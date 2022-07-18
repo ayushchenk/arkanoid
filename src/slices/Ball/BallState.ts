@@ -1,6 +1,6 @@
 import config from "../../config";
 import { Point } from "../../models/Point";
-import { getRandomPoint } from "../../util/Util";
+import { getNewBallPosition } from "../../util/Util";
 
 export interface BallState {
     position: Point;
@@ -9,7 +9,7 @@ export interface BallState {
 }
 
 export const initialState: BallState = {
-    position: getRandomPoint(100, 200, 100, 200),
+    position: getNewBallPosition(),
     xVelocity: config.ball.offset,
     yVelocity: config.ball.offset
 }

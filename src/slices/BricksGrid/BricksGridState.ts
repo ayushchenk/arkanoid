@@ -15,6 +15,8 @@ for (let row = 1; row <= config.arena.rows; row++) {
     }
 }
 
+console.log(points);
+
 export const initialState: BricksGridState = {
     bricks: points
 }
